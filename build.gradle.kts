@@ -17,22 +17,28 @@ kotlin {
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
 
-    nativeTarget.apply {
-        binaries {
-            executable {
-                entryPoint = "main"
+    linuxArm32Hfp("Pi") {
+        compilations {
+            "main" {
+                cinterops {
+                    val libcurl by cinterops.creating {
+                        includeDirs("src/include/curl/")
+//                        extraOpts("-verbose")
+                    }
+                }
             }
         }
-    }
-    linuxArm32Hfp("Pi") {
         binaries {
             executable {
                 entryPoint = "main"
+                linkerOpts("-Lsrc/lib/curl/ -lcurl")  //, "-lcurl"
+
             }
         }
     }
 
     sourceSets {
+        val PiMain by getting
        /* val nativeMain by getting
         val nativeTest by getting*/
     }
