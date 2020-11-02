@@ -22,7 +22,7 @@ kotlin {
             "main" {
                 cinterops {
                     val libcurl by cinterops.creating {
-                        includeDirs("src/include/curl/")
+//                        includeDirs("src/include/curl/")
 //                        extraOpts("-verbose")
                     }
                 }
@@ -31,7 +31,7 @@ kotlin {
         binaries {
             executable {
                 entryPoint = "main"
-                linkerOpts("-Lsrc/lib/curl/ -lcurl")  //, "-lcurl"
+//                linkerOpts("-Lsrc/lib/curl/ -l curl -R .")  //, "-lcurl"
 
             }
         }

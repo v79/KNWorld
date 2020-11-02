@@ -1,2 +1,4 @@
 headers = curl.h
 
+compilerOpts = -Isrc/include/curl
+linkerOpts = -Lsrc/lib/curl/ -lcurl

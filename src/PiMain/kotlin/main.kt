@@ -4,7 +4,7 @@ import kotlinx.cinterop.*
 fun main(args: Array<String>) {
 	val curl = curl_easy_init()
 	if (curl != null) {
-		curl_easy_setopt(curl, CURLOPT_URL, "http://example.com")
+		curl_easy_setopt(curl, CURLOPT_URL, "https://www.liamjd.org/")
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L)
 		val res = curl_easy_perform(curl)
 		if (res != CURLE_OK) {
